@@ -7,9 +7,9 @@ const fetchUser = require("../middleware/fetchUser");
 // Route 1 - Create a new answer data with endpoint (POST : '/answers')
 router.post('/', fetchUser, async (req, res) => {
     try {
-        const { title, Answer_id } = req.body;
+        const { title, question_id } = req.body;
 
-        if (!title || !Answer_id)
+        if (!title || !question_id)
             return res.status(400).json({
                 type: "error",
                 message: "Please fill all the fields."
@@ -17,7 +17,7 @@ router.post('/', fetchUser, async (req, res) => {
 
         const item = await Answer.create({
             title,
-            Answer_id,
+            question_id,
             user_id: req.user.id
         });
 

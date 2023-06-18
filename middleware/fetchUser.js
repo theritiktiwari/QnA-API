@@ -5,7 +5,7 @@ const fetchUser = (req, res, next) => {
     // Get the token from the header
     const token = req.header('auth-token');
     if (!token) {
-        res.status(401).json({
+        return res.status(401).json({
             type: "error",
             message: "Invalid Credentials."
         });
@@ -16,7 +16,7 @@ const fetchUser = (req, res, next) => {
         req.user = data.user;
         next();
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             type: "error",
             message: "Something went wrong."
         });
