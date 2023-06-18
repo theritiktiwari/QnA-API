@@ -60,7 +60,7 @@ router.get('/', async (req, res) => {
 });
 
 // Route 3 - Get own answers data with endpoint (GET : '/answers/my')
-router.get('/', fetchUser, async (req, res) => {
+router.get('/my', fetchUser, async (req, res) => {
     try {
         const item = await Answer.find({ user_id: req.user.id });
 

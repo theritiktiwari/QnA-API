@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Question = require('../model/questions');
+const Answer = require('../model/answers');
 const fetchUser = require("../middleware/fetchUser");
 
 // Route 1 - Create a new question data with endpoint (POST : '/questions')
@@ -34,13 +35,9 @@ router.post('/', fetchUser, async (req, res) => {
 });
 
 // Route 2 - Get all questions data with endpoint (GET : '/questions')
-router.get('/', fetchUser, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        let item;
-        if (req.user.role !== "admin")
-            item = await Question.find({ user_id: req.user.id });
-        else
-            item = await Question.find();
+        const item = await Question.find();
 
         if (item.length === 0)
             return res.status(200).json({
@@ -62,7 +59,32 @@ router.get('/', fetchUser, async (req, res) => {
     }
 });
 
-// ROUTE 3 - Update the questions data with endpoint (PUT : '/questions/:id')
+// Route 3 - Get own questions data with endpoint (GET : '/questions/my')
+router.get('/my', fetchUser, async (req, res) => {
+    try {
+        const item = await Question.find({ user_id: req.user.id });
+
+        if (item.length === 0)
+            return res.status(200).json({
+                type: "success",
+                message: "No data found.",
+                data: []
+            });
+
+        return res.status(200).json({
+            type: "success",
+            message: "Data fetched successfully",
+            data: item
+        });
+    } catch (err) {
+        res.status(500).json({
+            type: "error",
+            message: "Something went wrong.",
+        });
+    }
+});
+
+// ROUTE 4 - Update the questions data with endpoint (PUT : '/questions/:id')
 router.put('/:id', fetchUser, async (req, res) => {
     try {
         const { title } = req.body;
@@ -104,7 +126,7 @@ router.put('/:id', fetchUser, async (req, res) => {
     }
 });
 
-// ROUTE 4 - Delete the questions data with endpoint (DELETE : '/questions/:id')
+// ROUTE 5 - Delete the questions data with endpoint (DELETE : '/questions/:id')
 router.delete('/:id', fetchUser, async (req, res) => {
     try {
         const existingQuestion = await Question.findById(req.params.id);
@@ -121,17 +143,15 @@ router.delete('/:id', fetchUser, async (req, res) => {
                     message: "You are not authorized to perform this action."
                 });
 
-        const item = await Question.findByIdAndDelete(req.params.id);
-        if (!item)
-            return res.status(404).json({
-                type: "error",
-                message: "Question not found."
+        const answer = await Answer.deleteMany({ question_id: req.params.id });
+        const question = await Question.findByIdAndDelete(req.params.id);
+
+        if (question && answer)
+            return res.status(200).json({
+                type: "success",
+                message: "Question deleted successfully."
             });
 
-        return res.status(200).json({
-            type: "success",
-            message: "Question deleted successfully."
-        });
     } catch (err) {
         res.status(500).json({
             type: "error",
