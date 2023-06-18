@@ -1,0 +1,350 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CracKube",
+    "dateExported": "2023-06-18T19:17:36.677Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "cc13a1bf-fcfc-4e1a-a2ad-7af1da2c347d",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2023-06-18T18:52:38.369Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "f345f638-d6bb-4f1a-8ef3-353b620770f6",
+            "name": "Questions",
+            "containerId": "",
+            "created": "2023-06-18T19:04:48.099Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "b4a09b6d-9450-4bfa-b9e0-17703360eaa6",
+            "name": "Answers",
+            "containerId": "",
+            "created": "2023-06-18T19:12:55.237Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "c052b496-69c7-4560-b2c4-1d4331980d4e",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "cc13a1bf-fcfc-4e1a-a2ad-7af1da2c347d",
+            "name": "Create",
+            "url": "{{hostname}}/api/auth/newuser",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-06-18T18:52:46.412Z",
+            "modified": "2023-06-18T19:02:03.682Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Admin\",\n  \"email\": \"admin@crackube.com\",\n  \"password\": \"admin@123\",\n  \"confirmPassword\": \"admin@123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "efc42c11-c1e2-48f0-b82c-d6d35fe45e42",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "cc13a1bf-fcfc-4e1a-a2ad-7af1da2c347d",
+            "name": "Login",
+            "url": "{{hostname}}/api/auth/login",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-18T18:55:39.322Z",
+            "modified": "2023-06-18T19:02:44.245Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"admin@crackube.com\",\n  \"password\": \"admin@123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "68a6235b-cd60-4486-8437-f7c75fff3bea",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "f345f638-d6bb-4f1a-8ef3-353b620770f6",
+            "name": "Create",
+            "url": "{{hostname}}/api/questions",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-18T19:04:52.725Z",
+            "modified": "2023-06-18T19:09:41.184Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Dummy Question 4\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "068822af-4e79-4afe-bd48-736a6f2ae169",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "b4a09b6d-9450-4bfa-b9e0-17703360eaa6",
+            "name": "Create",
+            "url": "{{hostname}}/api/answers",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-18T19:12:55.237Z",
+            "modified": "2023-06-18T19:14:48.027Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Dummy Answers 3\",\n  \"question_id\": \"648f5666acf6f1484c57c72d\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ad307b64-052d-4974-b26a-0c80b67c7661",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "cc13a1bf-fcfc-4e1a-a2ad-7af1da2c347d",
+            "name": "Get Loggedin user",
+            "url": "{{hostname}}/api/auth/getuser",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-06-18T18:55:41.259Z",
+            "modified": "2023-06-18T18:57:22.549Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d0216ec5-3dbd-4405-ba2c-20fea955b506",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "f345f638-d6bb-4f1a-8ef3-353b620770f6",
+            "name": "Read",
+            "url": "{{hostname}}/api/questions",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-06-18T19:08:01.222Z",
+            "modified": "2023-06-18T19:08:33.246Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "6f033e01-4d73-4593-88b4-12eb8735b2fc",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "b4a09b6d-9450-4bfa-b9e0-17703360eaa6",
+            "name": "Read",
+            "url": "{{hostname}}/api/answers",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-06-18T19:12:55.238Z",
+            "modified": "2023-06-18T19:15:06.489Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c87c8ed4-5967-4f03-beb8-553ed68d4a57",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "cc13a1bf-fcfc-4e1a-a2ad-7af1da2c347d",
+            "name": "All Users",
+            "url": "{{hostname}}/api/auth/users",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-06-18T18:55:43.259Z",
+            "modified": "2023-06-18T19:03:10.221Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjU0YjhhY2Y2ZjE0ODRjNTdjNzFkIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjcmFja3ViZS5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjg3MTE0OTY0fQ.f0Z32gTde0DbM0SWKP4KU3SKFFmBKEG1F9v5xrpVirA"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "f3194a6d-3da6-4ed8-9343-5277627b7f4b",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "f345f638-d6bb-4f1a-8ef3-353b620770f6",
+            "name": "Read Own",
+            "url": "{{hostname}}/api/questions/my",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-06-18T19:08:27.855Z",
+            "modified": "2023-06-18T19:08:55.212Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3940be81-1f66-419e-b5d3-b93f09989859",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "b4a09b6d-9450-4bfa-b9e0-17703360eaa6",
+            "name": "Read Own",
+            "url": "{{hostname}}/api/answers/my",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-06-18T19:12:55.239Z",
+            "modified": "2023-06-18T19:15:43.829Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cc5ec84d-97a2-4cb2-99cc-0026c711c4c0",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "cc13a1bf-fcfc-4e1a-a2ad-7af1da2c347d",
+            "name": "Update",
+            "url": "{{hostname}}/api/auth/update/648f5309ecd68c252f752d1f",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-06-18T18:59:58.236Z",
+            "modified": "2023-06-18T19:02:11.216Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Dummy\",\n  \"password\": \"dummy@123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a97b1f44-d5f0-4a02-9cc8-17d38c618279",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "f345f638-d6bb-4f1a-8ef3-353b620770f6",
+            "name": "Update",
+            "url": "{{hostname}}/api/questions/648f55faacf6f1484c57c726",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-06-18T19:10:18.083Z",
+            "modified": "2023-06-18T19:11:48.013Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Upadated Question\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ab335fd3-70c9-48e3-8792-eb1dba940951",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "b4a09b6d-9450-4bfa-b9e0-17703360eaa6",
+            "name": "Update",
+            "url": "{{hostname}}/api/answers/648f57a72af15b027c5e8c6a",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-06-18T19:12:55.240Z",
+            "modified": "2023-06-18T19:16:03.888Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Upadated Answer\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "38fc3c2c-f2ed-4906-a019-a1eb575e40d7",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "cc13a1bf-fcfc-4e1a-a2ad-7af1da2c347d",
+            "name": "Delete",
+            "url": "{{hostname}}/api/auth/delete/648f5505d86ce3b5e6556969",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-06-18T19:03:47.923Z",
+            "modified": "2023-06-18T19:04:14.201Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjU0YjhhY2Y2ZjE0ODRjNTdjNzFkIiwibmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjcmFja3ViZS5jb20iLCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNjg3MTE0OTY0fQ.f0Z32gTde0DbM0SWKP4KU3SKFFmBKEG1F9v5xrpVirA"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4687e14a-c101-467e-a439-f0497349b572",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "f345f638-d6bb-4f1a-8ef3-353b620770f6",
+            "name": "Delete",
+            "url": "{{hostname}}/api/questions/648f5663acf6f1484c57c72b",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-06-18T19:10:20.737Z",
+            "modified": "2023-06-18T19:12:23.116Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "27f4fa6c-4f7c-4700-a038-de47306f0280",
+            "colId": "e9afa3bf-e1f4-4206-9c65-c5ad74a1ceef",
+            "containerId": "b4a09b6d-9450-4bfa-b9e0-17703360eaa6",
+            "name": "Delete",
+            "url": "{{hostname}}/api/answers/648f5819d86ce3b5e655696c",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2023-06-18T19:12:55.241Z",
+            "modified": "2023-06-18T19:17:02.401Z",
+            "headers": [
+                {
+                    "name": "auth-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ4ZjUzMDllY2Q2OGMyNTJmNzUyZDFmIiwibmFtZSI6IlJpdGlrIFRpd2FyaSIsImVtYWlsIjoiYWJjQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIn0sImlhdCI6MTY4NzExNDU3MX0.rFq9y-c7TyB_rvIpA6Vht3Zp-1NCBidjjK5n7XV6qr0"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
