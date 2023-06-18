@@ -11,8 +11,7 @@ app.use(express.json());
 const port = process.env.PORT || 5000;
 connectDB();
 
-app.get("/api", (req, res) => {
-    console.log({dev: process.env.NODE_ENV});
+app.get("/", (req, res) => {
     res.send("CracKube : Q&A API");
 });
 
