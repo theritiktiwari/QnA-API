@@ -46,10 +46,25 @@ router.get('/', async (req, res) => {
                 data: []
             });
 
+        const page = parseInt(req.page) || 1;
+        const limit = parseInt(req.limit) || 10;
+
+        const startIndex = (page - 1) * limit;
+        const endIndex = page * limit;
+
+        const paginatedItems = item.slice(startIndex, endIndex);
+
         return res.status(200).json({
             type: "success",
             message: "Data fetched successfully",
-            data: item
+            data: {
+                value: paginatedItems,
+                pagination: {
+                    page,
+                    limit,
+                    total: item.length
+                }
+            }
         });
     } catch (err) {
         res.status(500).json({
